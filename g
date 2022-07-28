@@ -19,7 +19,7 @@ then
         echo "creating ~/.local/bin"
         mkdir -p "$HOME/.local/bin"
     fi
-    if echo ":$PATH:" | grep ':$HOME/.local/bin'
+    if echo ":$PATH:" | grep ":$HOME/.local/bin"
     then
         echo "~/.local/bin already present on path. proceeding..."
     else
