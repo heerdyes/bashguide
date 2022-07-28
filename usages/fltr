@@ -1,0 +1,23 @@
+grep -n varx *.[ch]                               # locate varx variable in C source code
+who | grep hm                                     # check if hm is logged in
+ls | grep -v tmp                                  # filenames that don't contain tmp
+ls -l | grep '^d'                                 # list subdirectory names
+sed -e 's/<cust_name>/Actual Name/' \
+ -e 's/<company_name>/The Real Co/' \
+ -e 's/<cust_company_name>/Unreal Co/' \
+ -e 's/<session_type>/phone/' \
+ -e 's/<consult_type>/phone/' \
+ -e 's/<company_link>/www.therealco.com/' \
+ -e 's/<closing_statement>/Warm Regards/' \
+ -e 's/<sign>/Real Name/' email_template          # replace tokens with actual strings
+
+cat nums | awk '{sum+=$1} END {print sum}'        # accumulate sum for file containing numbers column
+cat pllinks | 
+  awk -F'"' '{ split($2,a,"/"); print a[3]}' |
+  sed -e 's/_(.*[lL]anguage)//' \
+    -e 's/_(.*revision)//' \
+    -e 's/_(.*software)$//' \
+    -e 's/_([a-zA-Z]*_shell)//' \
+    -e 's/_([dD]atabase)$//' |
+tr '[:upper:]' '[:lower:]' |
+while read line; do which "$line"; done > langs   # mega one-liner to retrieve languages from html page

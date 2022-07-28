@@ -1,0 +1,27 @@
+man <command>                     # open man pages for <command>
+info <command>                    # detailed tutorial-style info on <command>
+top                               # show system usage, processes/ram/load etc
+less <file>                       # convenient read only viewer
+vi <file>                         # open <file> in vi editor
+nano <file>                       # open <file> in nano editor
+emacs <file>                      # open <file> in emacs editor
+head <file>                       # show top ten lines of <file>
+head -n 2 <file>                  # show top 2 lines of <file>
+tail <file>                       # show last 10 lines of <file>
+tail -n 20 <file>                 # show last 20 lines of <file>
+ps -ef | grep firefox             # search for firefox processes
+kill -2 <pid>                     # politely request <pid> to die (send SIGTERM)
+kill -9 <pid>                     # forcibly kill <pid> (send SIGKILL)
+grep -nr . -e '^print'            # recursively grep curdir for lns starting with 'print', with line nos
+a=`echo "scale=2; 11/7"|bc`       # ask bc to calc value of 11/7 and store in var a. round to 2 decimals
+echo $?                           # check exit status of last cmd
+date                              # self explanatory command
+cal                               # calendar utility
+./myscript.sh                     # run script myscript.sh
+echo $PATH                        # echo the PATH env var
+cd ~                              # go home
+poweroff                          # shutdown the computer (and go home)
+export PATH=$PATH:/custom/dir     # add a directory to the PATH env var and make it available to sub-shells
+diff f1 f2 >f12.diff              # find difference b/w f1 and f2 and send it to f12.diff
+wc -l <file>                      # run word count program on <file> and find no of lines
+time gcc a.c                      # calculate how much time to compile a.c source with gcc

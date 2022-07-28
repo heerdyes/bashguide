@@ -1,0 +1,20 @@
+cat <filename>             # print out the file
+od -c <filename>           # octal dump bytes as chars
+file <path/to/file>        # guesses the file details
+ls <path/to/file>          # list dir contents. default curdir
+ls -i                      # list curdir contents with inode
+pwd                        # present working directory
+cd <path/to/dir>           # change directory to path
+pushd <path/to/dir>        # push curdir onto dir stack and cd to path/to/dir
+popd                       # pop the dir stack and cd to it
+du -h                      # disk usage with human friendly output
+cat /etc/passwd            # this file has the system user details
+chmod 644 a.sh             # for a.sh give permissions: -rw-r--r--
+chmod u+x b.pl             # add executable permission for user
+chmod go-x a.py            # remove executable permission for group and others
+chown <usr> <file>         # change owner of <file> to <usr>
+ln <old> <new>             # create a link <new> pointing to <old>
+cp <old> <new>             # copy <old> file to <new> path
+cp -r <path/to/dir> .      # recursively copy <path/to/dir> tree to curdir
+mv <old> <new>             # move <old> to <new>, behaves like rename for curdir
+mkdir -p <path/to/dir>     # recursively create dir path <path/to/dir> if absent
