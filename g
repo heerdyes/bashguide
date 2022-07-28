@@ -21,17 +21,17 @@ then
     fi
     if echo ":$PATH:" | grep ':$HOME/.local/bin'
     then
-    	echo "~/.local/bin already present on path."
-    	echo "updating file permissions..."
-    	chmod +x g
-    	echo "going to copy file into dir: ~/.local/bin"
-    	cp g "$HOME/.local/bin"
+    	echo "~/.local/bin already present on path. proceeding..."
     else
     	echo "appending to .bashrc"
-    	echo -e "\n# bashguide config\nexport PATH=\"$PATH:$HOME/.local/bin\"" >> ~/.bashrc
+    	echo -e "\n# bashguide config\nexport PATH=\"\$PATH:\$HOME/.local/bin\"" >> ~/.bashrc
     	echo "updating PATH var for the current session..."
     	export PATH="$PATH:$HOME/.local/bin"
     fi
+    echo "updating g file permissions..."
+    chmod +x g
+    echo "going to copy file into dir: ~/.local/bin"
+    cp g "$HOME/.local/bin"
     echo "creating bashguide home dir: $B7E_HOME"
     mkdir -p "$USAGE_D"
     echo "downloading usage files..."
