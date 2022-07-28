@@ -17,16 +17,16 @@ then
     if [ ! -d "$HOME/.local/bin" ]
     then
         echo "creating ~/.local/bin"
-    	mkdir -p "$HOME/.local/bin"
+        mkdir -p "$HOME/.local/bin"
     fi
     if echo ":$PATH:" | grep ':$HOME/.local/bin'
     then
-    	echo "~/.local/bin already present on path. proceeding..."
+        echo "~/.local/bin already present on path. proceeding..."
     else
-    	echo "appending to .bashrc"
-    	echo -e "\n# bashguide config\nexport PATH=\"\$PATH:\$HOME/.local/bin\"" >> ~/.bashrc
-    	echo "updating PATH var for the current session..."
-    	export PATH="$PATH:$HOME/.local/bin"
+        echo "appending to .bashrc"
+        echo -e "\n# bashguide config\nexport PATH=\"\$PATH:\$HOME/.local/bin\"" >> ~/.bashrc
+        echo "updating PATH var for the current session..."
+        export PATH="$PATH:$HOME/.local/bin"
     fi
     echo "updating g file permissions..."
     chmod +x g
@@ -44,45 +44,45 @@ then
     cp fs "$USAGE_D"
     cp prog "$USAGE_D"
     cp sh "$USAGE_D"
-	popd
-	echo "removing temporary files..."
-	rm -r "$HOME/tmp"
-	echo "exiting setup. done!"
-	exit
+    popd
+    echo "removing temporary files..."
+    rm -r "$HOME/tmp"
+    echo "exiting setup. done!"
+    exit
 fi
 
 while true
 do
-	echo -e "\n\n----------- Topics -----------\n"
-	echo "1. FS   - file system"
-	echo "2. SH   - using the shell"
-	echo "3. FLTR - filters"
-	echo "4. PROG - shell programming"
-	echo -n "-> select topic [1-4]: "
-	read uch
-	
-	if [ "$uch" == "1" ]
-	then
-		clear
-		echo "# ---- FS ---- #"
-		cat "$USAGE_D/fs"
-	elif [ "$uch" == "2" ]
-	then
-		clear
-		echo "# ---- SH ---- #"
-		cat "$USAGE_D/sh"
-	elif [ "$uch" == "3" ]
-	then
-		clear
-		echo "# ---- FLTR ---- #"
-		cat "$USAGE_D/fltr"
-	elif [ "$uch" == "4" ]
-	then
-		clear
-		echo "# ---- PROG ---- #"
-		cat "$USAGE_D/prog"
-	else
-		echo "no such option! exiting..."
-		break
-	fi
+    echo -e "\n\n----------- Topics -----------\n"
+    echo "1. FS   - file system"
+    echo "2. SH   - using the shell"
+    echo "3. FLTR - filters"
+    echo "4. PROG - shell programming"
+    echo -n "-> select topic [1-4]: "
+    read uch
+    
+    if [ "$uch" == "1" ]
+    then
+        clear
+        echo "# ---- FS ---- #"
+        cat "$USAGE_D/fs"
+    elif [ "$uch" == "2" ]
+    then
+        clear
+        echo "# ---- SH ---- #"
+        cat "$USAGE_D/sh"
+    elif [ "$uch" == "3" ]
+    then
+        clear
+        echo "# ---- FLTR ---- #"
+        cat "$USAGE_D/fltr"
+    elif [ "$uch" == "4" ]
+    then
+        clear
+        echo "# ---- PROG ---- #"
+        cat "$USAGE_D/prog"
+    else
+        echo "no such option! exiting..."
+        break
+    fi
 done
