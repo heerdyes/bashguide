@@ -51,38 +51,45 @@ then
     exit
 fi
 
-while true
-do
-    echo -e "\n\n----------- Topics -----------\n"
-    echo "1. FS   - file system"
-    echo "2. SH   - using the shell"
-    echo "3. FLTR - filters"
-    echo "4. PROG - shell programming"
-    echo -n "-> select topic [1-4]: "
-    read uch
-    
-    if [ "$uch" == "1" ]
-    then
-        clear
-        echo "# ---- FS ---- #"
-        cat "$USAGE_D/fs"
-    elif [ "$uch" == "2" ]
-    then
-        clear
-        echo "# ---- SH ---- #"
-        cat "$USAGE_D/sh"
-    elif [ "$uch" == "3" ]
-    then
-        clear
-        echo "# ---- FLTR ---- #"
-        cat "$USAGE_D/fltr"
-    elif [ "$uch" == "4" ]
-    then
-        clear
-        echo "# ---- PROG ---- #"
-        cat "$USAGE_D/prog"
-    else
-        echo "no such option! exiting..."
-        break
-    fi
-done
+if [ "$1" == "" ]
+then
+    while true
+    do
+        echo -e "\n\n----------- Topics -----------\n"
+        echo "1. FS   - file system"
+        echo "2. SH   - using the shell"
+        echo "3. FLTR - filters"
+        echo "4. PROG - shell programming"
+        echo -n "-> select topic [1-4]: "
+        read uch
+        
+        if [ "$uch" == "1" ]
+        then
+            clear
+            echo "# ---- FS ---- #"
+            cat "$USAGE_D/fs"
+        elif [ "$uch" == "2" ]
+        then
+            clear
+            echo "# ---- SH ---- #"
+            cat "$USAGE_D/sh"
+        elif [ "$uch" == "3" ]
+        then
+            clear
+            echo "# ---- FLTR ---- #"
+            cat "$USAGE_D/fltr"
+        elif [ "$uch" == "4" ]
+        then
+            clear
+            echo "# ---- PROG ---- #"
+            cat "$USAGE_D/prog"
+        else
+            echo "no such option! exiting..."
+            break
+        fi
+    done
+else
+    echo -e "\n$1 examples:\n"
+    grep -nr "$USAGE_D" -e "$1" | sed 's/^.*://'
+fi
+
