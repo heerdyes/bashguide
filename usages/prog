@@ -1,11 +1,3 @@
 for i in {1..10}; do echo $RANDOM; done > nums                         # generate 10 random numbers and store in nums
 wget https://en.wikipedia.org/wiki/Timeline_of_programming_languages   # downloads html page given in url
-xmllint \
-  --html Timeline_of_programming_languages \
-  --xpath '//td[2]/a/@href' > pllinks                                  # send a hrefs to pllinks
-if <cmd>                                                               # if else statement
-then
-    <cmd>+
-else
-    <cmd>+
-fi
+xmllint --html Timeline_of_programming_languages --xpath '//td[2]/a/@href' > pllinks  # send a hrefs to pllinks

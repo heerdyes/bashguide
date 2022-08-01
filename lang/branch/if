@@ -1,0 +1,4 @@
+if <cmd>
+then
+    <cmd>+
+fi
