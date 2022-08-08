@@ -2,6 +2,26 @@
 set -euo pipefail
 IFS=$'\n'
 
+# bare minimum command checks function
+chk_cmd() {
+    echo "checking bare minimum command functionality..."
+    if ! command -v pushd &> /dev/null
+    then
+        echo "pushd does not exist, install it and then rerun this script! exiting."
+        exit
+    elif ! command -v curl &> /dev/null
+    then
+        echo "curl does not exist, install it and then rerun this script! exiting."
+        exit
+    elif ! command -v wget &> /dev/null
+    then
+        echo "wget does not exist, install it and then rerun this script! exiting."
+        exit
+    fi
+}
+
+chk_cmd()
+
 B7E_HOME="$HOME/.b7e"
 USAGE_D="$B7E_HOME/usages"
 
