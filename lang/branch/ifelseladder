@@ -1,0 +1,9 @@
+if <cmd>
+then
+    <cmd>+
+elif <cmd>
+then
+    <cmd>+
+else
+    <cmd>+
+fi
