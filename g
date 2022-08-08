@@ -20,7 +20,7 @@ chk_cmd() {
     fi
 }
 
-chk_cmd()
+chk_cmd
 
 B7E_HOME="$HOME/.b7e"
 USAGE_D="$B7E_HOME/usages"
