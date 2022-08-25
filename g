@@ -97,8 +97,9 @@ then
         echo "3. FLTR - filters"
         echo "4. PROG - shell programming"
         echo "5. INST - help with installing tools"
-        echo "0. BYE  - uninstall bashguide!"
-        echo -n "-> select topic [1-4]: "
+        echo "U. GOODBYE  - uninstall bashguide!"
+        echo "q. QUIT - quit this program"
+        echo -n "-> selection: "
         read uch
         
         if [ "$uch" == "1" ]
@@ -126,10 +127,15 @@ then
             clear
             echo "# ---- INST ---- #"
             cat "$USAGE_D/inst"
-        elif [ "$uch" == "0" ]
+        elif [ "$uch" == "U" ]
         then
             clear
+            echo "# ---- UNINSTALL ---- #"
             remove_b7e
+        elif [ "$uch" == "q" ]
+        then
+            echo "bye!"
+            break
         else
             echo "no such option! exiting..."
             break
