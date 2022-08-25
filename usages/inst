@@ -1,0 +1,12 @@
+# openssh-server on ubuntu
+sudo apt install -y openssh-server
+
+# openjdk-18 on a x64 linux machine
+pushd $EXTRACT_DIR
+wget https://download.java.net/java/GA/jdk18.0.2.1/db379da656dc47308e138f21b33976fa/1/GPL/openjdk-18.0.2.1_linux-x64_bin.tar.gz
+tar -xf openjdk-18.0.2.1_linux-x64_bin.tar.gz
+jdkdir=$(tar -tf openjdk-18.0.2.1_linux-x64_bin.tar.gz | head -n1 | awk -F/ '{print $1}')
+echo "export PATH=\"\$PATH:$(pwd)/$jdkdir/bin\"" >> ~/.bashrc
+popd
+# restart your shell after this
+

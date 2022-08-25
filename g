@@ -24,13 +24,16 @@ chk_cmd
 
 B7E_HOME="$HOME/.b7e"
 USAGE_D="$B7E_HOME/usages"
+DLURL="https://github.com/heerdyes/bashguide/archive/refs/heads/main.zip"
 
 setup_b7e() {
     echo -e "entering setup\ngoing to install bashguide on your system..."
     echo "creating ~/tmp and entering it..."
     TMPDIR="$HOME/tmp"
     mkdir $TMPDIR && pushd $TMPDIR
-    wget https://raw.githubusercontent.com/heerdyes/bashguide/main/g
+    wget $DLURL
+    tar -xf main.zip
+    cd main
     if [ ! -d "$HOME/.local/bin" ]
     then
         echo "creating ~/.local/bin"
@@ -50,17 +53,13 @@ setup_b7e() {
     echo "going to copy file into dir: ~/.local/bin"
     cp g "$HOME/.local/bin"
     echo "creating bashguide home dir: $B7E_HOME"
-    mkdir -p "$USAGE_D"
-    echo "downloading usage files..."
-    wget https://raw.githubusercontent.com/heerdyes/bashguide/main/usages/fltr
-    wget https://raw.githubusercontent.com/heerdyes/bashguide/main/usages/fs
-    wget https://raw.githubusercontent.com/heerdyes/bashguide/main/usages/prog
-    wget https://raw.githubusercontent.com/heerdyes/bashguide/main/usages/sh
-    echo "copying them to $USAGE_D"
-    cp fltr "$USAGE_D"
-    cp fs "$USAGE_D"
-    cp prog "$USAGE_D"
-    cp sh "$USAGE_D"
+    mkdir -p "$B7E_HOME"
+    echo "copying files..."
+    cp -r usages $B7E_HOME
+    cp -r lang $B7E_HOME
+    cp LICENSE $B7E_HOME
+    cp README.md $B7E_HOME
+    cd ..
     popd
     echo "removing temporary files..."
     rm -r $TMPDIR
@@ -93,6 +92,7 @@ then
         echo "2. SH   - using the shell"
         echo "3. FLTR - filters"
         echo "4. PROG - shell programming"
+        echo "5. INST - help with installing tools"
         echo "0. BYE  - uninstall bashguide!"
         echo -n "-> select topic [1-4]: "
         read uch
@@ -117,6 +117,11 @@ then
             clear
             echo "# ---- PROG ---- #"
             cat "$USAGE_D/prog"
+        elif [ "$uch" == "5" ]
+        then
+            clear
+            echo "# ---- INST ---- #"
+            cat "$USAGE_D/inst"
         elif [ "$uch" == "0" ]
         then
             clear
