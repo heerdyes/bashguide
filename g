@@ -17,6 +17,10 @@ chk_cmd() {
     then
         echo "wget does not exist, install it and then rerun this script! exiting."
         exit
+    elif ! command -v unzip &> /dev/null
+    then
+        echo "unzip does not exist, install it and then rerun this script! exiting."
+        exit
     fi
 }
 
@@ -32,8 +36,8 @@ setup_b7e() {
     TMPDIR="$HOME/tmp"
     mkdir $TMPDIR && pushd $TMPDIR
     wget $DLURL
-    tar -xf main.zip
-    cd main
+    unzip main.zip
+    cd bashguide-main
     if [ ! -d "$HOME/.local/bin" ]
     then
         echo "creating ~/.local/bin"
