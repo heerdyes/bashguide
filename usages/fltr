@@ -10,3 +10,6 @@ awk -F'"' '{ split($2,a,"/"); print a[3]}' |
 sed -e 's/_(.*[lL]anguage)//' -e 's/_(.*revision)//' -e 's/_(.*software)$//' -e 's/_([a-zA-Z]*_shell)//' -e 's/_([dD]atabase)$//' |
 tr '[:upper:]' '[:lower:]' |
 while read line; do which "$line"; done > langs   # mega one-liner to retrieve languages from html page
+ps -ef | grep gedit | head -n1 | awk '{print $2}' # get the process id of gedit if running
+kill -2 $(ps -ef | grep gedit | head -n1 | awk '{print $2}') # kill the process after finding out its PID
+
